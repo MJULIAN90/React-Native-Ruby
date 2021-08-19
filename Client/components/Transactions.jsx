@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { View, Text, Button, FlatList, StyleSheet } from "react-native";
+import { styles } from "./../style/Transactions";
+import { View, Text, Button, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "../Context";
 import axios from "axios";
@@ -7,10 +8,10 @@ import CardTransaction from "./CardTransaction";
 
 const Transactions = () => {
   const context = useContext(UserContext);
-  const { userid } = context;
+  const { userid, transactionsH} = context;
   const navigation = useNavigation();
 
-  const [state, setstate] = useState([]);
+  const [state, setstate] = useState();
 
   const history = async () => {
     let obj = {
@@ -22,23 +23,25 @@ const Transactions = () => {
       method: "Post",
       data: obj,
     });
+
     setstate(balanceuser.data);
   };
 
   useEffect(() => {
     history();
-  }, []);
+  }, [transactionsH]);
 
   return (
     <View>
       <Button
-        color="#8a0000"
+        color="#0da7a3"
+        borderColor="black"
         title="Exit"
         onPress={() => navigation.navigate("Login")}
       />
 
-      {state.length === 0 ? (
-        <Text style={styles.texto}>Usuario no posee transaciones</Text>
+      {state && state.length === 0 ? (
+        <Text style={styles.texto}>Usuario no posee transacciones</Text>
       ) : (
         <FlatList
           data={state}
@@ -58,9 +61,3 @@ const Transactions = () => {
 };
 
 export default Transactions;
-
-const styles = StyleSheet.create({
-  texto: {
-    fontSize: 30,
-  },
-});

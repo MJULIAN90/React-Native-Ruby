@@ -12,18 +12,18 @@ const Home = () => {
   return (
     <Tab.Navigator
       initialRouteName="Dashboard"
-      tabBarOptions={{
-        activeTintColor: "darkred",
+      screenOptions={{
+        activeTintColor: "black",
       }}
     >
       <Tab.Screen
         name="DASHBOARD"
         component={Dashboard}
         options={{
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ size }) => (
             <MaterialCommunityIcons
               name="information-circle"
-              color={color}
+              color={"#black"}
               size={size}
             />
           ),
@@ -34,10 +34,10 @@ const Home = () => {
         name="TRANSACCIONES"
         component={Transactions}
         options={{
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ size }) => (
             <MaterialCommunityIcons
               name="book-sharp"
-              color={color}
+              color={"black"}
               size={size}
             />
           ),
@@ -48,10 +48,10 @@ const Home = () => {
         name="TRADE"
         component={Trade}
         options={{
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ size }) => (
             <MaterialCommunityIcons
               name="cash-sharp"
-              color={color}
+              color={"#black"}
               size={size}
             />
           ),

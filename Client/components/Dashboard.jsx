@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { styles } from "./../style/Dashboard";
+import { conversor } from "../conversor/conversor";
 import {
   View,
   Text,
   ActivityIndicator,
   Button,
-  StyleSheet,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
@@ -15,26 +16,32 @@ const Dashboard = () => {
 
   const api = async () => {
     let price = await axios.get("http://localhost:3000/price_bitcon/price");
-    price = price.data.response;
+    let priceApi = price.data.response;
+    price = conversor("usd", priceApi);
     setstate(price);
   };
 
-  setInterval(api, 3000);
+  useEffect(() => {
+    var time = setInterval(api, 5000);
+      return () => {
+        clearTimeout(time)
+      }
+  },[])
 
   return (
     <View>
       <Button
-        color="#8a0000"
+        color="#0da7a3"
         title="Exit"
         onPress={() => navigation.navigate("Login")}
       />
 
       <View style={styles.info}>
-        <Text style={styles.texto}>PRECIO BTC</Text>
+        <Text style={styles.texto}>PRECIO BTC EN USD</Text>
         {!state ? (
-          <ActivityIndicator size="large" color="#00ff00" />
+          <ActivityIndicator size="large" color="#0da7a3" />
         ) : (
-          <Text style={styles.texto}>{state} </Text>
+          <Text style={styles.texto}>{state}</Text>
         )}
       </View>
     </View>
@@ -42,16 +49,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-const styles = StyleSheet.create({
-  texto: {
-    fontSize: 30,
-  },
-  info: {
-    marginTop: 200,
-    alignItems: "center",
-  },
-  button: {
-    backgroundColor: "red",
-  },
-});

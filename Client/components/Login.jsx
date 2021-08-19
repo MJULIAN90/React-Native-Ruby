@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
+import { styles } from "./../style/Login";
 import {
   TouchableOpacity,
   Text,
-  StyleSheet,
   View,
   TextInput,
   Image,
@@ -27,7 +27,7 @@ const Login = () => {
     response = response.data.response;
 
     if (user !== "" && password !== "") {
-      if (response === "clave inválida") return alert("CLAVE INVALIDAD");
+      if (response === "clave inválida") return alert("CLAVE INVALIDA");
       if (response === "usuario no existe") return alert("USUARIO NO EXISTE");
       if (typeof response === "number") {
         setUserid(response);
@@ -57,6 +57,7 @@ const Login = () => {
         />
 
         <TextInput
+          secureTextEntry={true}
           style={styles.inputs}
           placeholder="CONTRASEÑA"
           value={password}
@@ -72,41 +73,3 @@ const Login = () => {
 };
 
 export default Login;
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    marginTop: 400,
-    paddingBottom: 20,
-  },
-  inputs: {
-    margin: 10,
-    width: 160,
-    height: 30,
-    alignItems: "center",
-    borderWidth: 2,
-    borderRadius: 10,
-    fontSize: 20,
-    textAlign: "center",
-    borderBottomColor: "blue",
-  },
-  tinyLogo: {
-    width: "100%",
-    resizeMode: "stretch",
-    height: "50%",
-    position: "absolute",
-    marginTop: 120,
-  },
-  button: {
-    alignItems: "center",
-    marginLeft: "30%",
-    marginRight: "30%",
-    backgroundColor: "#0da7a3",
-    borderRadius: 10,
-  },
-
-  texto: {
-    fontSize: 25,
-    color: "white",
-  },
-});
