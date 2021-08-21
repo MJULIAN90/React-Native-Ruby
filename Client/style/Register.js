@@ -13,14 +13,14 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 2,
     borderRadius: 10,
-    fontSize: 20,
+    fontSize: 12,
     textAlign: "center",
     borderBottomColor: "blue",
   },
   tinyLogo: {
     width: "100%",
     resizeMode: "stretch",
-    height: "53.4%",
+    height: "50%",
     position: "absolute",
     marginTop: 120,
   },
@@ -30,10 +30,19 @@ export const styles = StyleSheet.create({
     marginRight: "30%",
     backgroundColor: "#0da7a3",
     borderRadius: 10,
+    marginTop: 5,
+  },
+  button2: {
+    alignItems: "center",
+    marginLeft: "30%",
+    marginRight: "30%",
+    backgroundColor: "gray",
+    borderRadius: 10,
+    marginTop: 5,
   },
 
   texto: {
-    fontSize: 25,
+    fontSize: 20,
     color: "white",
   },
   inicial: {

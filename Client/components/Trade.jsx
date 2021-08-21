@@ -1,14 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { conversorQuanti } from "../conversor/conversorQuanti";
-import { conversor } from "./../conversor/conversor";
+//import { conversorQuanti } from "../conversor/conversorQuanti";
+//import { conversor } from "./../conversor/conversor";
 import { styles } from "../style/Trade";
-import {
-  View,
-  Picker,
-  Button,
-  TextInput,
-  Text,
-} from "react-native";
+import { View, Picker, Button, TextInput, Text } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
@@ -19,6 +13,7 @@ const Trade = () => {
   const context = useContext(UserContext);
   const { userid, setTransactionsH, transactionsH } = context;
   const navigation = useNavigation();
+
   const [selectedValue, setSelectedValue] = useState("usd");
   const [selectTrade, setselectTrade] = useState("buy");
   const [quantity, setQuantity] = useState("");
@@ -33,19 +28,28 @@ const Trade = () => {
     let obj = {
       user_id: userid,
     };
-    
+
     let balanceuser = await axios({
       url: "http://localhost:3000/user/balance",
       method: "Post",
       data: obj,
     });
 
-    let balUser = balanceuser.data.response;
+    if (balanceuser) {
+      let balUser = balanceuser.data;
 
-    setInfoBalances({
-      usd: balUser.usd,
-      btc: balUser.btc,
-    });
+      setInfoBalances({
+        usd: balUser.usd,
+        btc: balUser.btc,
+      });
+    }
+
+    if (balanceuser.data === "Sin fondos") {
+      setInfoBalances({
+        usd: "0",
+        btc: "0",
+      });
+    }
   };
 
   useEffect(() => {
@@ -61,32 +65,29 @@ const Trade = () => {
     let btcprice = price.data.response;
 
     if (selectedValue === "btc" && quantity !== "") {
-      let info = parseFloat(conversorQuanti(quantity) * btcprice);
+      let info = parseFloat(quantity) * parseFloat(btcprice);
+
       return setTotalChange(info);
     }
     if (selectedValue === "usd" && quantity !== "") {
-      let info = parseFloat(conversorQuanti(quantity  ) / btcprice);
+      let info = parseFloat(quantity) / parseFloat(btcprice);
+
       return setTotalChange(info);
     }
     alert("ingrese un valor para calcular");
   };
 
   const send = async () => {
-
-    if(quantity === ""){
-      return alert("DEBED INGRESAR LA CANTIDAD");
-    }
-
-    var quantityTotal = conversorQuanti(quantity);
+    var quantityTotal = quantity;
     let cReceive = "";
+
     if (selectTrade === "buy") {
       setStatus(!status);
       if (selectedValue === "usd") cReceive = "btc";
-
       if (selectedValue === "btc") cReceive = "usd";
 
       const obj = {
-        type: "buy",
+        type_transaction: "buy",
         user_id: userid,
         csend: cReceive,
         creceive: selectedValue,
@@ -100,14 +101,15 @@ const Trade = () => {
         data: obj,
       });
 
-      if (data.data.response) {
+      if (data.data[0] === 1) {
         setQuantity("");
         setTotalChange("");
         balances();
-        setTransactionsH(!transactionsH)
+        setTransactionsH(!transactionsH);
         return alert("TRANSACCIÓN EXISTOSA");
       }
-      setTotalChange("")
+
+      setTotalChange("");
       return alert("FONDOS INSUFICIENTES");
     }
 
@@ -117,7 +119,7 @@ const Trade = () => {
       if (selectedValue === "btc") cReceive = "usd";
 
       const obj = {
-        type: "sell",
+        type_transaction: "sell",
         user_id: userid,
         csend: selectedValue,
         creceive: cReceive,
@@ -130,16 +132,16 @@ const Trade = () => {
         method: "Post",
         data: obj,
       });
-      if (data.data.response) {
+
+      if (data.data[0] === 1) {
         setQuantity("");
         setTotalChange("");
         balances();
-        setTransactionsH(!transactionsH)
+        setTransactionsH(!transactionsH);
         return alert("TRANSACCIÓN EXITOSA");
-      } else {
-        setTotalChange("");
-        return alert("FONDOS INSUFICIENTES");
       }
+      setTotalChange("");
+      return alert("FONDOS INSUFICIENTES");
     }
   };
 
@@ -152,10 +154,24 @@ const Trade = () => {
         onPress={() => navigation.navigate("Login")}
       />
 
-      <View>
+      <View style={styles.balance}>
         <Text style={styles.negrita}>TU BALANCE</Text>
-        <Text style={styles.negrita}>USD: {infoBalances.usd ? conversor("usd", infoBalances.usd) : null}</Text>
-        <Text style={styles.negrita}>BTC: {infoBalances.btc ? conversor("btc", infoBalances.btc) : null}</Text>
+        <Text style={styles.negrita}>
+          USD:{" "}
+          {infoBalances.usd ? (
+            <Text> {infoBalances.usd}</Text>
+          ) : (
+            <Text> Cargando ... </Text>
+          )}
+        </Text>
+        <Text style={styles.negrita}>
+          BTC:{" "}
+          {infoBalances.btc ? (
+            <Text> {infoBalances.btc}</Text>
+          ) : (
+            <Text> Cargando ... </Text>
+          )}
+        </Text>
       </View>
 
       <View>
@@ -163,7 +179,7 @@ const Trade = () => {
           <Text style={styles.negrita}> TIPO DE OPERACION </Text>
           <Picker
             selectedValue={selectTrade}
-            style={{ height: 50, width: 150, borderRadius:7, borderWidth:3 }}
+            style={{ height: 50, width: 150, borderRadius: 7, borderWidth: 3 }}
             onValueChange={(itemValue) => setselectTrade(itemValue)}
           >
             <Picker.Item label="COMPRAR" value="buy" />
@@ -180,7 +196,7 @@ const Trade = () => {
 
           <Picker
             selectedValue={selectedValue}
-            style={{ height: 50, width: 150, borderRadius:7, borderWidth:3 }}
+            style={{ height: 50, width: 150, borderRadius: 7, borderWidth: 3 }}
             onValueChange={(itemValue) => setSelectedValue(itemValue)}
           >
             <Picker.Item label="USD" value="usd" />
@@ -191,25 +207,39 @@ const Trade = () => {
         <View style={styles.container}>
           <TextInput
             placeholder="INGRESA CANTIDAD "
-            style={{textAlign:'center', borderWidth : 1.0, borderRadius: 5}}
+            style={{ textAlign: "center", borderWidth: 1.0, borderRadius: 5 }}
             onChangeText={setQuantity}
             value={quantity}
           />
           {selectTrade === "buy" ? (
-            <Text style={styles.negrita1}> ¿CUÁNTOS {selectedValue.toUpperCase()} DESEA COMPRAR? INGRESA LA CANTIDAD EN FORMATO DE MONEDA INTERNACIONAL </Text>
+            <Text style={styles.negrita1}>
+              ¿CUÁNTOS {selectedValue.toUpperCase()} DESEA COMPRAR? INGRESA LA
+              CANTIDAD EN FORMATO DE MONEDA INTERNACIONAL
+            </Text>
           ) : (
-            <Text style={styles.negrita1}> ¿CUÁNTOS {selectedValue.toUpperCase()} DESEA VENDER? INGRESA LA CANTIDAD EN FORMATO DE MONEDA INTERNACIONAL</Text>
+            <Text style={styles.negrita1}>
+              ¿CUÁNTOS {selectedValue.toUpperCase()} DESEA VENDER? INGRESA LA
+              CANTIDAD EN FORMATO DE MONEDA INTERNACIONAL
+            </Text>
           )}
         </View>
 
         <View style={styles.container}>
-          {selectTrade === "buy" && <Text style={styles.negrita}> DEBES TENER . . .</Text>}
+          {selectTrade === "buy" && (
+            <Text style={styles.negrita}> DEBES TENER . . .</Text>
+          )}
 
-          {selectTrade === "sell" && <Text style={styles.negrita}> RECIBIRÁS </Text>}
+          {selectTrade === "sell" && (
+            <Text style={styles.negrita}> RECIBIRÁS </Text>
+          )}
 
           {totalChange ? (
             <Text>
-              <Text style={styles.negrita}>{selectedValue === "usd" ? conversor("btc", totalChange) : conversor("usd", totalChange)}</Text>
+              <Text style={styles.negrita}>
+                {selectedValue === "usd"
+                  ? ("btc", totalChange)
+                  : ("usd", totalChange)}
+              </Text>
               {selectedValue === "usd" ? (
                 <Text style={styles.negrita}> BTC </Text>
               ) : (
@@ -217,13 +247,19 @@ const Trade = () => {
               )}
             </Text>
           ) : (
-            <Text style={styles.negrita}>PRESIONA CALCULAR </Text>
+            <Text style={styles.negrita}>
+              PRESIONA CALCULAR PARA PODER OPERAR
+            </Text>
           )}
 
           <Button color="#0da7a3" onPress={calculate} title="calcular" />
         </View>
 
-        <Button color="#0da7a3" title={selectTrade} onPress={send} />
+        {totalChange && infoBalances.btc !== "0" ? (
+          <Button color="#0da7a3" title={selectTrade} onPress={send} />
+        ) : (
+          <Button disabled={true} color="#0da7a3" title={selectTrade} />
+        )}
       </View>
     </View>
   );

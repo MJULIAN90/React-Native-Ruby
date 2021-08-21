@@ -1,10 +1,14 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("balances", {
+  sequelize.define("balance", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
+      allowNull: false,
+    },
+    user_id: {
+      type: DataTypes.STRING,
       primaryKey: true,
       allowNull: false,
     },

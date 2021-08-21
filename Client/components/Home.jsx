@@ -11,13 +11,13 @@ const Tab = createBottomTabNavigator();
 const Home = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="HOME"
       screenOptions={{
         activeTintColor: "black",
       }}
     >
       <Tab.Screen
-        name="DASHBOARD"
+        name="HOME"
         component={Dashboard}
         options={{
           tabBarIcon: ({ size }) => (
@@ -31,7 +31,7 @@ const Home = () => {
       />
 
       <Tab.Screen
-        name="TRANSACCIONES"
+        name="HISTORIAL"
         component={Transactions}
         options={{
           tabBarIcon: ({ size }) => (
@@ -45,7 +45,7 @@ const Home = () => {
       />
 
       <Tab.Screen
-        name="TRADE"
+        name="OPERAR"
         component={Trade}
         options={{
           tabBarIcon: ({ size }) => (

@@ -26,6 +26,10 @@ export const styles = StyleSheet.create({
     color: "black",
     color: "white",
     fontWeight: "bold",
-    marginBottom: 50,
+    marginBottom: 10,
+  },
+  button: {
+    paddingTop: 5,
+    marginTop: 5,
   },
 });

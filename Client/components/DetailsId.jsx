@@ -19,7 +19,7 @@ const DetailsId = ({ route }) => {
       method: "Post",
       data: obj,
     });
-    
+
     setstate([transacitionId.data]);
   };
 
@@ -29,14 +29,20 @@ const DetailsId = ({ route }) => {
 
   return (
     <View>
+      <Button
+        style={styles.button}
+        color="#0da7a3"
+        title="VOLVER"
+        onPress={() => navigation.navigate("Home")}
+      />
       {state ? (
         <View>
           {state.map((item, i) => {
             const {
-              id,
+              id_transaction,
               areceive,
               asend,
-              created_at,
+              createdAt,
               creceive,
               csend,
               type_transaction,
@@ -45,9 +51,9 @@ const DetailsId = ({ route }) => {
             return (
               <View style={styles.info} key={i}>
                 <Text style={styles.infoII}>ID TRANSATION:</Text>
-                <Text style={styles.infoI}>{id}</Text>
+                <Text style={styles.infoI}>{id_transaction}</Text>
                 <Text style={styles.infoI}>FECHA DE TRANSACION:</Text>
-                <Text style={styles.infoI}>{created_at.slice(0, 10)}</Text>
+                <Text style={styles.infoI}>{createdAt.slice(0, 10)}</Text>
                 <Text style={styles.infoI}>TIPO DE TRANSACION:</Text>
                 <Text style={styles.infoI}>
                   {type_transaction.toUpperCase()}
@@ -55,15 +61,11 @@ const DetailsId = ({ route }) => {
                 <Text style={styles.infoI}>MONEDA ENVIADA:</Text>
                 <Text style={styles.infoI}>{csend.toUpperCase()}</Text>
                 <Text style={styles.infoI}>CANTIDAD ENVIADA:</Text>
-                <Text style={styles.infoI}>
-                  {conversor(csend, asend)}
-                </Text>
+                <Text style={styles.infoI}>{(csend, asend)}</Text>
                 <Text style={styles.infoI}>MONEDA RECIBIDA:</Text>
                 <Text style={styles.infoI}>{creceive.toUpperCase()}</Text>
                 <Text style={styles.infoI}>CANTIDAD RECIBIDA:</Text>
-                <Text style={styles.infoIII}>
-                  {conversor(creceive, areceive)}
-                </Text>
+                <Text style={styles.infoIII}>{(creceive, areceive)}</Text>
               </View>
             );
           })}
@@ -71,12 +73,6 @@ const DetailsId = ({ route }) => {
       ) : (
         <ActivityIndicator size="large" color="#0da7a3" />
       )}
-
-      <Button
-        color="#0da7a3"
-        title="VOLVER"
-        onPress={() => navigation.navigate("Home")}
-      />
     </View>
   );
 };

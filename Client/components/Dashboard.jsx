@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { styles } from "./../style/Dashboard";
 import { conversor } from "../conversor/conversor";
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  Button,
-} from "react-native";
+import { View, Text, ActivityIndicator, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
@@ -17,16 +12,16 @@ const Dashboard = () => {
   const api = async () => {
     let price = await axios.get("http://localhost:3000/price_bitcon/price");
     let priceApi = price.data.response;
-    price = conversor("usd", priceApi);
-    setstate(price);
+    // = conversor("usd", priceApi.toString());
+    setstate(priceApi);
   };
 
   useEffect(() => {
     var time = setInterval(api, 5000);
-      return () => {
-        clearTimeout(time)
-      }
-  },[])
+    return () => {
+      clearTimeout(time);
+    };
+  }, []);
 
   return (
     <View>

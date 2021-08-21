@@ -8,7 +8,7 @@ import CardTransaction from "./CardTransaction";
 
 const Transactions = () => {
   const context = useContext(UserContext);
-  const { userid, transactionsH} = context;
+  const { userid, transactionsH } = context;
   const navigation = useNavigation();
 
   const [state, setstate] = useState();
@@ -18,13 +18,13 @@ const Transactions = () => {
       user_id: userid,
     };
 
-    let balanceuser = await axios({
+    let balanceUser = await axios({
       url: "http://localhost:3000/transaction/historyTransactions",
       method: "Post",
       data: obj,
     });
 
-    setstate(balanceuser.data);
+    setstate(balanceUser.data);
   };
 
   useEffect(() => {
@@ -45,13 +45,13 @@ const Transactions = () => {
       ) : (
         <FlatList
           data={state}
-          keyExtractor={({ id }) => id.toString()}
+          keyExtractor={({ id_transaction }) => id_transaction.toString()}
           renderItem={({ item }) => (
             <CardTransaction
-              updated_at={item.updated_at}
+              updatedAt={item.updatedAt}
               type_transaction={item.type_transaction}
               creceive={item.creceive}
-              id={item.id}
+              id={item.id_transaction}
             />
           )}
         />

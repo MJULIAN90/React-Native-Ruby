@@ -1,12 +1,6 @@
 import React, { useContext, useState } from "react";
 import { styles } from "./../style/Login";
-import {
-  TouchableOpacity,
-  Text,
-  View,
-  TextInput,
-  Image,
-} from "react-native";
+import { TouchableOpacity, Text, View, TextInput, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { UserContext } from "../Context";
@@ -18,6 +12,10 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
+  const register = () => {
+    alert("registrado");
+  };
+
   const handleSumit = async () => {
     let response = await axios.post("http://localhost:3000/user/login", {
       username: user,
@@ -27,7 +25,7 @@ const Login = () => {
     response = response.data.response;
 
     if (user !== "" && password !== "") {
-      if (response === "clave inválida") return alert("CLAVE INVALIDA");
+      if (response === "clave invalida") return alert("CLAVE INVALIDA");
       if (response === "usuario no existe") return alert("USUARIO NO EXISTE");
       if (typeof response === "number") {
         setUserid(response);
@@ -40,11 +38,11 @@ const Login = () => {
     alert("COMPLETE LOS CAMPOS");
   };
   return (
-    <View>
+    <View style={styles.inicial}>
       <Image
         style={styles.tinyLogo}
         source={{
-          uri: "https://vitawallet.io/assets/vita_quote_logo_footer.png",
+          uri: "https://github.com/andresf2448/Exchange-ProyectoFinal/raw/main/client/rocketXchange-logos/rocketXchange-logos_white.png",
         }}
       />
 
@@ -68,6 +66,15 @@ const Login = () => {
       <TouchableOpacity onPress={handleSumit} style={styles.button}>
         <Text style={styles.texto}>Entrar</Text>
       </TouchableOpacity>
+
+      <View style={styles.register}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Register")}
+          style={styles.button}
+        >
+          <Text style={styles.texto}>Registrarse</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

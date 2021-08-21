@@ -24,4 +24,7 @@ export const styles = StyleSheet.create({
     marginLeft: "10%",
     marginRight: "10%",
   },
+  balance: {
+    alignItems: "center",
+  },
 });
