@@ -11,19 +11,20 @@ const Tab = createBottomTabNavigator();
 const Home = () => {
   return (
     <Tab.Navigator
-      initialRouteName="HOME"
+      initialRouteName="INICIO"
       screenOptions={{
-        activeTintColor: "black",
+        activeTintColor: "white",
+        headerTitleAlign: "center",
       }}
     >
       <Tab.Screen
-        name="HOME"
+        name="INICIO"
         component={Dashboard}
         options={{
           tabBarIcon: ({ size }) => (
             <MaterialCommunityIcons
               name="information-circle"
-              color={"#black"}
+              color={"black"}
               size={size}
             />
           ),
@@ -51,7 +52,7 @@ const Home = () => {
           tabBarIcon: ({ size }) => (
             <MaterialCommunityIcons
               name="cash-sharp"
-              color={"#black"}
+              color={"black"}
               size={size}
             />
           ),

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { styles } from "./../style/Dashboard";
 import { conversor } from "../conversor/conversor";
-import { View, Text, ActivityIndicator, Button } from "react-native";
+import {
+  View,
+  Text,
+  ActivityIndicator,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
@@ -24,21 +30,32 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <View>
-      <Button
-        color="#0da7a3"
-        title="Exit"
+    <View style={styles.inicio}>
+      <TouchableOpacity
         onPress={() => navigation.navigate("Login")}
-      />
+        style={styles.salir}
+      >
+        <Text style={styles.textoSalir}>SALIR</Text>
+      </TouchableOpacity>
 
       <View style={styles.info}>
-        <Text style={styles.texto}>PRECIO BTC EN USD</Text>
+        <Text style={styles.texto}>PRECIO BTC </Text>
         {!state ? (
-          <ActivityIndicator size="large" color="#0da7a3" />
+          <ActivityIndicator
+            size="large"
+            color="#f7ce21"
+            style={{ paddingTop: 20 }}
+          />
         ) : (
-          <Text style={styles.texto}>{state}</Text>
+          <Text style={styles.texto}>{state} USD</Text>
         )}
       </View>
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: "https://img.freepik.com/vector-gratis/concepto-blockchain-moneda-criptografica-tecnologia-bitcoin_1017-30297.jpg?size=626&ext=jpg",
+        }}
+      />
     </View>
   );
 };

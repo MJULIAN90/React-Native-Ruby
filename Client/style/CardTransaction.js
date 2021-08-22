@@ -10,14 +10,18 @@ export const styles = StyleSheet.create({
     padding: 10,
     borderColor: "black",
     borderRadius: 10,
-    backgroundColor: "#0da7a3",
+    backgroundColor: "#f7ce21",
   },
+
   label: {
     marginLeft: "20%",
     marginRight: "20%",
-    color: "white",
+    color: "black",
+    fontWeight: "bold",
   },
+
   labels: {
-    color: "white",
+    color: "black",
+    fontWeight: "bold",
   },
 });

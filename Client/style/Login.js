@@ -1,44 +1,51 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  inicial: {
+    backgroundColor: "black",
+    paddingBottom: 160,
+  },
+
+  tinyLogo: {
+    width: "100%",
+    resizeMode: "stretch",
+    height: "52%",
+    position: "absolute",
+    marginTop: 90,
+  },
+
   container: {
     alignItems: "center",
     marginTop: 400,
     paddingBottom: 20,
   },
+
   inputs: {
     margin: 10,
     width: 160,
-    height: 30,
+    height: 40,
     alignItems: "center",
     borderWidth: 2,
     borderRadius: 10,
     fontSize: 20,
     textAlign: "center",
-    borderBottomColor: "blue",
+    borderBottomColor: "#f7ce21",
+    color: "white",
   },
-  tinyLogo: {
-    width: "100%",
-    resizeMode: "stretch",
-    height: "53.4%",
-    position: "absolute",
-    marginTop: 120,
-  },
+
   button: {
     alignItems: "center",
     marginLeft: "30%",
     marginRight: "30%",
-    backgroundColor: "#0da7a3",
+    backgroundColor: "#f7ce21",
     borderRadius: 10,
   },
 
   texto: {
     fontSize: 25,
-    color: "white",
+    color: "black",
   },
-  inicial: {
-    /* backgroundColor: "black", */
-  },
+
   register: {
     marginTop: 5,
   },

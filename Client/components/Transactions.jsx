@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { styles } from "./../style/Transactions";
-import { View, Text, Button, FlatList } from "react-native";
+import { View, Text, TouchableOpacity, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "../Context";
 import axios from "axios";
@@ -32,13 +32,13 @@ const Transactions = () => {
   }, [transactionsH]);
 
   return (
-    <View>
-      <Button
-        color="#0da7a3"
-        borderColor="black"
-        title="Exit"
+    <View style={styles.inicio}>
+      <TouchableOpacity
         onPress={() => navigation.navigate("Login")}
-      />
+        style={styles.salir}
+      >
+        <Text style={styles.textoSalir}>Exit</Text>
+      </TouchableOpacity>
 
       {state && state.length === 0 ? (
         <Text style={styles.texto}>Usuario no posee transacciones</Text>

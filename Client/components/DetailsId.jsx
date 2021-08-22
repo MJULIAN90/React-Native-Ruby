@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { styles } from "./../style/DetailsId";
-import { conversor } from "../conversor/conversor";
-import { View, Text, ActivityIndicator, Button } from "react-native";
+import { View, Text, ActivityIndicator, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
@@ -28,13 +27,13 @@ const DetailsId = ({ route }) => {
   }, []);
 
   return (
-    <View>
-      <Button
-        style={styles.button}
-        color="#0da7a3"
-        title="VOLVER"
+    <View style={styles.inicio}>
+      <TouchableOpacity
         onPress={() => navigation.navigate("Home")}
-      />
+        style={styles.salir}
+      >
+        <Text style={styles.textoSalir}>VOLVER</Text>
+      </TouchableOpacity>
       {state ? (
         <View>
           {state.map((item, i) => {
@@ -49,23 +48,23 @@ const DetailsId = ({ route }) => {
             } = item;
 
             return (
-              <View style={styles.info} key={i}>
-                <Text style={styles.infoII}>ID TRANSATION:</Text>
+              <View style={styles.container} key={i}>
+                <Text style={styles.infoII}>ID TRANSACION:</Text>
                 <Text style={styles.infoI}>{id_transaction}</Text>
-                <Text style={styles.infoI}>FECHA DE TRANSACION:</Text>
+                <Text style={styles.infoII}>FECHA DE TRANSACION:</Text>
                 <Text style={styles.infoI}>{createdAt.slice(0, 10)}</Text>
-                <Text style={styles.infoI}>TIPO DE TRANSACION:</Text>
+                <Text style={styles.infoII}>TIPO DE TRANSACION:</Text>
                 <Text style={styles.infoI}>
                   {type_transaction.toUpperCase()}
                 </Text>
-                <Text style={styles.infoI}>MONEDA ENVIADA:</Text>
+                <Text style={styles.infoII}>MONEDA ENVIADA:</Text>
                 <Text style={styles.infoI}>{csend.toUpperCase()}</Text>
-                <Text style={styles.infoI}>CANTIDAD ENVIADA:</Text>
+                <Text style={styles.infoII}>CANTIDAD ENVIADA:</Text>
                 <Text style={styles.infoI}>{(csend, asend)}</Text>
-                <Text style={styles.infoI}>MONEDA RECIBIDA:</Text>
+                <Text style={styles.infoII}>MONEDA RECIBIDA:</Text>
                 <Text style={styles.infoI}>{creceive.toUpperCase()}</Text>
-                <Text style={styles.infoI}>CANTIDAD RECIBIDA:</Text>
-                <Text style={styles.infoIII}>{(creceive, areceive)}</Text>
+                <Text style={styles.infoII}>CANTIDAD RECIBIDA:</Text>
+                <Text style={styles.infoI}>{(creceive, areceive)}</Text>
               </View>
             );
           })}

@@ -2,7 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 //import { conversorQuanti } from "../conversor/conversorQuanti";
 //import { conversor } from "./../conversor/conversor";
 import { styles } from "../style/Trade";
-import { View, Picker, Button, TextInput, Text } from "react-native";
+import {
+  View,
+  Picker,
+  Button,
+  TextInput,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
@@ -146,13 +153,13 @@ const Trade = () => {
   };
 
   return (
-    <View>
-      <Button
-        color="#0da7a3"
-        title="SALIR"
-        style={styles.button}
+    <View style={styles.inicio}>
+      <TouchableOpacity
         onPress={() => navigation.navigate("Login")}
-      />
+        style={styles.salir}
+      >
+        <Text style={styles.textoSalir}>SALIR</Text>
+      </TouchableOpacity>
 
       <View style={styles.balance}>
         <Text style={styles.negrita}>TU BALANCE</Text>
@@ -207,7 +214,13 @@ const Trade = () => {
         <View style={styles.container}>
           <TextInput
             placeholder="INGRESA CANTIDAD "
-            style={{ textAlign: "center", borderWidth: 1.0, borderRadius: 5 }}
+            style={{
+              textAlign: "center",
+              borderWidth: 1.0,
+              borderRadius: 5,
+              height: 35,
+              backgroundColor: "#d0d0d0",
+            }}
             onChangeText={setQuantity}
             value={quantity}
           />
@@ -252,13 +265,13 @@ const Trade = () => {
             </Text>
           )}
 
-          <Button color="#0da7a3" onPress={calculate} title="calcular" />
+          <Button color="#f7ce21" onPress={calculate} title="calcular" />
         </View>
 
         {totalChange && infoBalances.btc !== "0" ? (
-          <Button color="#0da7a3" title={selectTrade} onPress={send} />
+          <Button color="#f7ce21" title={selectTrade} onPress={send} />
         ) : (
-          <Button disabled={true} color="#0da7a3" title={selectTrade} />
+          <Button disabled={true} color="#f7ce21" title={selectTrade} />
         )}
       </View>
     </View>

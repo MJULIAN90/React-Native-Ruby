@@ -1,35 +1,45 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  info: {
+  inicio: {
+    backgroundColor: "black",
+    paddingBottom: 100,
+  },
+
+  salir: {
+    backgroundColor: "#f7ce21",
     alignItems: "center",
-    marginTop: 70,
-    backgroundColor: "#0da7a3",
+    height: 30,
+  },
+
+  textoSalir: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+
+  container: {
+    alignItems: "center",
+    marginTop: 50,
+    marginLeft: "5%",
+    marginRight: "5%",
+    backgroundColor: "#f7ce21",
     borderRadius: 30,
     height: "90%",
+    paddingBottom: "5%",
   },
+
   infoI: {
     fontSize: 17,
     color: "black",
-    color: "white",
     fontWeight: "bold",
     marginBottom: 10,
   },
+
   infoII: {
     marginTop: "5%",
-    fontSize: 17,
-    color: "white",
-    fontWeight: "bold",
-  },
-  infoIII: {
-    fontSize: 17,
+    fontSize: 25,
     color: "black",
-    color: "white",
     fontWeight: "bold",
-    marginBottom: 10,
-  },
-  button: {
-    paddingTop: 5,
-    marginTop: 5,
   },
 });
