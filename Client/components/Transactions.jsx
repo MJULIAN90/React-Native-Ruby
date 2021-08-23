@@ -5,9 +5,9 @@ import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "../Context";
 import axios from "axios";
 import CardTransaction from "./CardTransaction";
-import { REACT_APP_API } from "@env";
 
 const Transactions = () => {
+  let REACT_APP_API = "https://react-native-wallet-rocket.herokuapp.com";
   const context = useContext(UserContext);
   const { userid, transactionsH } = context;
   const navigation = useNavigation();
@@ -20,7 +20,7 @@ const Transactions = () => {
     };
 
     let balanceUser = await axios({
-      url: `/transaction/historyTransactions`,
+      url: `${REACT_APP_API}/transaction/historyTransactions`,
       method: "Post",
       data: obj,
     });

@@ -3,9 +3,9 @@ import { Text, View, TextInput, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./../style/Register";
 import axios from "axios";
-import { REACT_APP_API } from "@env";
 
 const Register = () => {
+  let REACT_APP_API = "https://react-native-wallet-rocket.herokuapp.com";
   const navigation = useNavigation();
 
   const [user, setUser] = useState("");
@@ -14,7 +14,7 @@ const Register = () => {
 
   const handleSumit = async () => {
     if (password === password2) {
-      let create = await axios.post(`/user/create`, {
+      let create = await axios.post(`${REACT_APP_API}/user/create`, {
         username: user,
         password: password,
       });
@@ -41,6 +41,7 @@ const Register = () => {
         <TextInput
           style={styles.inputs}
           placeholder="NUEVO USUARIO"
+          placeholderTextColor="white"
           value={user}
           onChangeText={setUser}
         />
@@ -49,6 +50,7 @@ const Register = () => {
           secureTextEntry={true}
           style={styles.inputs}
           placeholder="NUEVA CONTRASEÑA"
+          placeholderTextColor="white"
           value={password}
           onChangeText={setPassword}
         />
@@ -57,6 +59,7 @@ const Register = () => {
           secureTextEntry={true}
           style={styles.inputs}
           placeholder="CONFIRME LA CONTRASEÑA"
+          placeholderTextColor="white"
           value={password2}
           onChangeText={setPassword2}
         />

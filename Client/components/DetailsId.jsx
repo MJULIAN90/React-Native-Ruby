@@ -3,9 +3,9 @@ import { styles } from "./../style/DetailsId";
 import { View, Text, ActivityIndicator, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import { REACT_APP_API } from "@env";
 
 const DetailsId = ({ route }) => {
+  let REACT_APP_API = "https://react-native-wallet-rocket.herokuapp.com";
   const navigation = useNavigation();
   const [state, setstate] = useState();
 
@@ -15,7 +15,7 @@ const DetailsId = ({ route }) => {
     };
 
     let transacitionId = await axios({
-      url: `/transaction/Transaction`,
+      url: `${REACT_APP_API}/transaction/Transaction`,
       method: "Post",
       data: obj,
     });

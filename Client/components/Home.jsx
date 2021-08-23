@@ -1,7 +1,6 @@
 import React from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/Ionicons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
 import Dashboard from "./Dashboard";
 import Transactions from "./Transactions";
 import Trade from "./Trade";

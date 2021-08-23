@@ -13,9 +13,9 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
 import { UserContext } from "../Context";
-import { REACT_APP_API } from "@env";
 
 const Trade = () => {
+  let REACT_APP_API = "https://react-native-wallet-rocket.herokuapp.com";
   const context = useContext(UserContext);
   const { userid, setTransactionsH, transactionsH } = context;
   const navigation = useNavigation();
@@ -36,7 +36,7 @@ const Trade = () => {
     };
 
     let balanceuser = await axios({
-      url: `/user/balance`,
+      url: `${REACT_APP_API}/user/balance`,
       method: "Post",
       data: obj,
     });
@@ -67,7 +67,7 @@ const Trade = () => {
   }, [quantity]);
 
   const calculate = async () => {
-    let price = await axios(`/price_bitcon/price`);
+    let price = await axios(`${REACT_APP_API}/price_bitcon/price`);
     let btcprice = price.data.response;
 
     if (selectedValue === "btc" && quantity !== "") {
@@ -102,7 +102,7 @@ const Trade = () => {
       };
 
       let data = await axios({
-        url: `/transaction/buy`,
+        url: `${REACT_APP_API}/transaction/buy`,
         method: "Post",
         data: obj,
       });
@@ -134,7 +134,7 @@ const Trade = () => {
       };
 
       let data = await axios({
-        url: `/transaction/buy`,
+        url: `${REACT_APP_API}/transaction/buy`,
         method: "Post",
         data: obj,
       });
@@ -185,7 +185,14 @@ const Trade = () => {
           <Text style={styles.negrita}> TIPO DE OPERACION </Text>
           <Picker
             selectedValue={selectTrade}
-            style={{ height: 50, width: 150, borderRadius: 7, borderWidth: 3 }}
+            style={{
+              height: 50,
+              width: 150,
+              borderRadius: 7,
+              borderWidth: 3,
+              color: "white",
+              backgroundColor: "white",
+            }}
             onValueChange={(itemValue) => setselectTrade(itemValue)}
           >
             <Picker.Item label="COMPRAR" value="buy" />
@@ -202,7 +209,13 @@ const Trade = () => {
 
           <Picker
             selectedValue={selectedValue}
-            style={{ height: 50, width: 150, borderRadius: 7, borderWidth: 3 }}
+            style={{
+              height: 50,
+              width: 150,
+              borderRadius: 7,
+              borderWidth: 3,
+              color: "white",
+            }}
             onValueChange={(itemValue) => setSelectedValue(itemValue)}
           >
             <Picker.Item label="USD" value="usd" />
@@ -213,12 +226,13 @@ const Trade = () => {
         <View style={styles.container}>
           <TextInput
             placeholder="INGRESA CANTIDAD "
+            placeholderTextColor="#000"
             style={{
               textAlign: "center",
               borderWidth: 1.0,
               borderRadius: 5,
               height: 35,
-              backgroundColor: "#d0d0d0",
+              backgroundColor: "white",
             }}
             onChangeText={setQuantity}
             value={quantity}

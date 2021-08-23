@@ -8,13 +8,8 @@ import Home from "./components/Home";
 import { UserContext } from "./Context";
 import DetailsId from "./components/DetailsId";
 import Register from "./components/Register";
-import axios from "axios";
 
-import dotenv from "dotenv";
-dotenv.config();
 const Stack = createStackNavigator();
-
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3000";
 
 export default function App() {
   const [userid, setUserid] = useState({});

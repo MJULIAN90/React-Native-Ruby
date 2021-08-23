@@ -9,21 +9,21 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
-import { REACT_APP_API } from "@env";
 
 const Dashboard = () => {
+  let REACT_APP_API = "https://react-native-wallet-rocket.herokuapp.com";
   const [state, setstate] = useState(false);
   const navigation = useNavigation();
 
   const api = async () => {
-    let price = await axios.get(`/price_bitcon/price`);
+    let price = await axios.get(`${REACT_APP_API}/price_bitcon/price`);
     let priceApi = price.data.response;
     // = conversor("usd", priceApi.toString());
     setstate(priceApi);
   };
 
   useEffect(() => {
-    var time = setInterval(api, 5000);
+    var time = setInterval(api, 4000);
     return () => {
       clearTimeout(time);
     };
