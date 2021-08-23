@@ -43,8 +43,8 @@ Se implementó un sistema de inicio de sesión para los usuarios registrados en 
 
 
 <p align="center">
-<img  src="https://user-images.githubusercontent.com/76981775/130433621-7c8d31ed-bfd7-4ba0-ba15-a9af04bce69b.png" width="40%" height='250px'>
-<img  src="https://user-images.githubusercontent.com/76981775/130433759-b4fc8f3d-4131-4785-8635-546fb7f77dbf.png" width="40%" height='250px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130433621-7c8d31ed-bfd7-4ba0-ba15-a9af04bce69b.png" width="40%" height='400px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130433759-b4fc8f3d-4131-4785-8635-546fb7f77dbf.png" width="40%" height='400px'>
 </p>
 
 En nuestro ingreso por la plataforma tenemos la sesión de inicio donde por medio de un llamado a una API externa nos proporciona el precio del BTC en tiempo real y que se va a actualizando de acuerdo a fluctuación del mercado y de cada cierto tiempo que le hacemos llamado con ayuda de setInterval y de nuestro hooks como es el caso del UseEffect que nos proporciona la librería de REACT JS. 
