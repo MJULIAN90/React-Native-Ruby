@@ -51,7 +51,7 @@ En nuestro ingreso por la plataforma tenemos la sesión de inicio donde por medi
 
 
 <p align="center">
-<img  src="https://user-images.githubusercontent.com/76981775/130434465-14fd9d59-63d8-4c6c-a738-a7bf524a2f5e.png" width="60%" height='550px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130434465-14fd9d59-63d8-4c6c-a738-a7bf524a2f5e.png" width="40%" height='550px'>
 </p>
 
 Tenemos otras sesiones que es donde realizamos las consultas de nuestras transacciones, el intercambio de USD a BTC y viceversa, siempre y cuando poseamos los fondos suficientes para realizar dicha transacción, la cual podemos comprobar con nuestro convertidor de divisa que se verá en las imágenes, en la sesión que debemos destacar es la cual podemos ver toda información detallada de dichas transacciones realizadas que nos muestra el tipo de operación, hora, fecha entre otros datos.
