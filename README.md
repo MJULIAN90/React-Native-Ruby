@@ -43,8 +43,8 @@ Se implementó un sistema de inicio de sesión para los usuarios registrados en 
 
 
 <p align="center">
-<img  src="https://user-images.githubusercontent.com/76981775/130433621-7c8d31ed-bfd7-4ba0-ba15-a9af04bce69b.png" width="40%" height='400px'>
-<img  src="https://user-images.githubusercontent.com/76981775/130433759-b4fc8f3d-4131-4785-8635-546fb7f77dbf.png" width="40%" height='400px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130433621-7c8d31ed-bfd7-4ba0-ba15-a9af04bce69b.png" width="30%" height='500px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130433759-b4fc8f3d-4131-4785-8635-546fb7f77dbf.png" width="30%" height='500px'>
 </p>
 
 En nuestro ingreso por la plataforma tenemos la sesión de inicio donde por medio de un llamado a una API externa nos proporciona el precio del BTC en tiempo real y que se va a actualizando de acuerdo a fluctuación del mercado y de cada cierto tiempo que le hacemos llamado con ayuda de setInterval y de nuestro hooks como es el caso del UseEffect que nos proporciona la librería de REACT JS. 
@@ -53,16 +53,16 @@ En nuestro ingreso por la plataforma tenemos la sesión de inicio donde por medi
 
 
 <p align="center">
-<img  src="https://user-images.githubusercontent.com/76981775/130434465-14fd9d59-63d8-4c6c-a738-a7bf524a2f5e.png" width="60%" height='250px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130434465-14fd9d59-63d8-4c6c-a738-a7bf524a2f5e.png" width="60%" height='500px'>
 </p>
 
 Tenemos otras sesiones que es donde realizamos las consultas de nuestras transacciones, el intercambio de USD a BTC y viceversa, siempre y cuando poseamos los fondos suficientes para realizar dicha transacción, la cual podemos comprobar con nuestro convertidor de divisa que se verá en las imágenes, en la sesión que debemos destacar es la cual podemos ver toda información detallada de dichas transacciones realizadas que nos muestra el tipo de operación, hora, fecha entre otros datos.
 
 
 <p align="center">
-<img  src="https://user-images.githubusercontent.com/76981775/130434735-5832e1c5-fbb9-4f6e-8787-2a2f222dd994.png" width="30%" height='250px'>
-<img  src="https://user-images.githubusercontent.com/76981775/130434806-dfa3df3f-69ca-4b7c-8df0-bc825ffaacff.png" width="30%" height='250px'>
-<img  src="https://user-images.githubusercontent.com/76981775/130434924-f18e20c0-70f4-4a06-b41e-ef3e89d9f8f6.png" width="30%" height='250px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130434735-5832e1c5-fbb9-4f6e-8787-2a2f222dd994.png" width="30%" height='500px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130434806-dfa3df3f-69ca-4b7c-8df0-bc825ffaacff.png" width="30%" height='500px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130434924-f18e20c0-70f4-4a06-b41e-ef3e89d9f8f6.png" width="30%" height='500px'>
 </p>
 
 ********
