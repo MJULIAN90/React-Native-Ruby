@@ -1,0 +1,1 @@
+aca debemos lanzar localtunnerl para organizar la ruta y poder correr la app corectamente.
