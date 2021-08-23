@@ -15,7 +15,7 @@ const Login = () => {
 
   console.log(REACT_APP_API);
   const handleSumit = async () => {
-    let response = await axios.post(`${REACT_APP_API}/user/login`, {
+    let response = await axios.post(`/user/login`, {
       username: user,
       password: password,
     });

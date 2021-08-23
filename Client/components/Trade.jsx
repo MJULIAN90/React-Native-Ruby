@@ -36,7 +36,7 @@ const Trade = () => {
     };
 
     let balanceuser = await axios({
-      url: `${REACT_APP_API}/user/balance`,
+      url: `/user/balance`,
       method: "Post",
       data: obj,
     });
@@ -67,7 +67,7 @@ const Trade = () => {
   }, [quantity]);
 
   const calculate = async () => {
-    let price = await axios(`${REACT_APP_API}/price_bitcon/price`);
+    let price = await axios(`/price_bitcon/price`);
     let btcprice = price.data.response;
 
     if (selectedValue === "btc" && quantity !== "") {
@@ -102,7 +102,7 @@ const Trade = () => {
       };
 
       let data = await axios({
-        url: `${REACT_APP_API}/transaction/buy`,
+        url: `/transaction/buy`,
         method: "Post",
         data: obj,
       });
@@ -134,7 +134,7 @@ const Trade = () => {
       };
 
       let data = await axios({
-        url: `${REACT_APP_API}/transaction/buy`,
+        url: `/transaction/buy`,
         method: "Post",
         data: obj,
       });

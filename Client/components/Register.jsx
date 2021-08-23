@@ -14,7 +14,7 @@ const Register = () => {
 
   const handleSumit = async () => {
     if (password === password2) {
-      let create = await axios.post(`${REACT_APP_API}/user/create`, {
+      let create = await axios.post(`/user/create`, {
         username: user,
         password: password,
       });

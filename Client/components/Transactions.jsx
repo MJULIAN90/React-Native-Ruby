@@ -20,7 +20,7 @@ const Transactions = () => {
     };
 
     let balanceUser = await axios({
-      url: `${REACT_APP_API}/transaction/historyTransactions`,
+      url: `/transaction/historyTransactions`,
       method: "Post",
       data: obj,
     });

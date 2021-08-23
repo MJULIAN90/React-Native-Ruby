@@ -16,7 +16,7 @@ const Dashboard = () => {
   const navigation = useNavigation();
 
   const api = async () => {
-    let price = await axios.get(`${REACT_APP_API}/price_bitcon/price`);
+    let price = await axios.get(`/price_bitcon/price`);
     let priceApi = price.data.response;
     // = conversor("usd", priceApi.toString());
     setstate(priceApi);

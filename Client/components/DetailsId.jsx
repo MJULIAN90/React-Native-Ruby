@@ -15,7 +15,7 @@ const DetailsId = ({ route }) => {
     };
 
     let transacitionId = await axios({
-      url: `${REACT_APP_API}/transaction/Transaction`,
+      url: `/transaction/Transaction`,
       method: "Post",
       data: obj,
     });
