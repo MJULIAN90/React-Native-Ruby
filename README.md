@@ -67,7 +67,9 @@ Tenemos otras sesiones que es donde realizamos las consultas de nuestras transac
 
 ### Más información 
 
-Próximamente URL
+✔ Video: <a href="https://www.youtube.com/watch?v=1x_WuUUaWuM" target="_blank">
+ROCKET WALLET
+</a> 
 
 
 
