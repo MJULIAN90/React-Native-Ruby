@@ -30,7 +30,9 @@ Se implementó tanto el back end, como el front end. En la parte del back end se
 
 ### STACK TECNOLÓGICO
 
-| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" width="60" alt="HTML"> | <img src="https://reactnative.dev/img/header_logo.svg" width="60" alt="CSS"> | <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F7%2F7e%2FNode.js_logo_2015.svg%2F1280px-Node.js_logo_2015.svg.png&f=1&nofb=1" width="60" alt="JS">  | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="60" alt="REACT"> | <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdevtechnosys.com%2Finsights%2Fwp-content%2Fuploads%2F2019%2F06%2Fexpress-js-logo.png&f=1&nofb=1" width="60" alt="HTML"> <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.7AOhGDnRL2eyJMUidCHZEAHaDt%26pid%3DApi&f=1" width="60" alt="JS">  | <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.HgZ0btw9LNzzUj6_XGMgLwHaEK%26pid%3DApi&f=1" width="60" alt="REACT"> |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" width="60" alt="HTML"> | 
+<img src="https://reactnative.dev/img/header_logo.svg" width="60" alt="CSS"> | <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F7%2F7e%2FNode.js_logo_2015.svg%2F1280px-Node.js_logo_2015.svg.png&f=1&nofb=1" width="60" alt="JS">  | <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="60" alt="REACT"> | 
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdevtechnosys.com%2Finsights%2Fwp-content%2Fuploads%2F2019%2F06%2Fexpress-js-logo.png&f=1&nofb=1" width="60" alt="HTML"> | <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.7AOhGDnRL2eyJMUidCHZEAHaDt%26pid%3DApi&f=1" width="60" alt="JS">  | <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.HgZ0btw9LNzzUj6_XGMgLwHaEK%26pid%3DApi&f=1" width="60" alt="REACT"> |
 | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |
 | CSS3  | React Native | Node JS | JAVASCRIPT |  Express JS | PostgreSQL | Sequelize |
 
@@ -51,14 +53,7 @@ En nuestro ingreso por la plataforma tenemos la sesión de inicio donde por medi
 
 
 <p align="center">
-<img  src="https://user-images.githubusercontent.com/76981775/130434465-14fd9d59-63d8-4c6c-a738-a7bf524a2f5e.png" width="60%" height='500px'>
-
-</p>
-
-
-
-<p align="center">
-<img  src="https://user-images.githubusercontent.com/76981775/130434465-14fd9d59-63d8-4c6c-a738-a7bf524a2f5e.png" width="60%" height='500px'>
+<img  src="https://user-images.githubusercontent.com/76981775/130434465-14fd9d59-63d8-4c6c-a738-a7bf524a2f5e.png" width="60%" height='550px'>
 </p>
 
 Tenemos otras sesiones que es donde realizamos las consultas de nuestras transacciones, el intercambio de USD a BTC y viceversa, siempre y cuando poseamos los fondos suficientes para realizar dicha transacción, la cual podemos comprobar con nuestro convertidor de divisa que se verá en las imágenes, en la sesión que debemos destacar es la cual podemos ver toda información detallada de dichas transacciones realizadas que nos muestra el tipo de operación, hora, fecha entre otros datos.
