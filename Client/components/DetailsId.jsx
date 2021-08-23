@@ -3,6 +3,7 @@ import { styles } from "./../style/DetailsId";
 import { View, Text, ActivityIndicator, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import { REACT_APP_API } from "@env";
 
 const DetailsId = ({ route }) => {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ const DetailsId = ({ route }) => {
     };
 
     let transacitionId = await axios({
-      url: "http://localhost:3000/transaction/Transaction",
+      url: `${REACT_APP_API}/transaction/Transaction`,
       method: "Post",
       data: obj,
     });

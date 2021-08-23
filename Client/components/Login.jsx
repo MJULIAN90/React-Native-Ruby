@@ -4,6 +4,7 @@ import { TouchableOpacity, Text, View, TextInput, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { UserContext } from "../Context";
+import { REACT_APP_API } from "@env";
 
 const Login = () => {
   const context = useContext(UserContext);
@@ -12,12 +13,9 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
 
-  const register = () => {
-    alert("registrado");
-  };
-
+  console.log(REACT_APP_API);
   const handleSumit = async () => {
-    let response = await axios.post("http://localhost:3000/user/login", {
+    let response = await axios.post(`${REACT_APP_API}/user/login`, {
       username: user,
       password: password,
     });

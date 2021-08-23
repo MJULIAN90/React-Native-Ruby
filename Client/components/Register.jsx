@@ -3,6 +3,7 @@ import { Text, View, TextInput, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./../style/Register";
 import axios from "axios";
+import { REACT_APP_API } from "@env";
 
 const Register = () => {
   const navigation = useNavigation();
@@ -13,7 +14,7 @@ const Register = () => {
 
   const handleSumit = async () => {
     if (password === password2) {
-      let create = await axios.post("http://localhost:3000/user/create", {
+      let create = await axios.post(`${REACT_APP_API}/user/create`, {
         username: user,
         password: password,
       });

@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-//import { conversorQuanti } from "../conversor/conversorQuanti";
-//import { conversor } from "./../conversor/conversor";
 import { styles } from "../style/Trade";
 import {
   View,
@@ -15,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 
 import { UserContext } from "../Context";
+import { REACT_APP_API } from "@env";
 
 const Trade = () => {
   const context = useContext(UserContext);
@@ -37,7 +36,7 @@ const Trade = () => {
     };
 
     let balanceuser = await axios({
-      url: "http://localhost:3000/user/balance",
+      url: `${REACT_APP_API}/user/balance`,
       method: "Post",
       data: obj,
     });
@@ -68,7 +67,7 @@ const Trade = () => {
   }, [quantity]);
 
   const calculate = async () => {
-    let price = await axios("http://localhost:3000/price_bitcon/price");
+    let price = await axios(`${REACT_APP_API}/price_bitcon/price`);
     let btcprice = price.data.response;
 
     if (selectedValue === "btc" && quantity !== "") {
@@ -103,7 +102,7 @@ const Trade = () => {
       };
 
       let data = await axios({
-        url: "http://localhost:3000/transaction/buy",
+        url: `${REACT_APP_API}/transaction/buy`,
         method: "Post",
         data: obj,
       });
@@ -135,7 +134,7 @@ const Trade = () => {
       };
 
       let data = await axios({
-        url: "http://localhost:3000/transaction/buy",
+        url: `${REACT_APP_API}/transaction/buy`,
         method: "Post",
         data: obj,
       });

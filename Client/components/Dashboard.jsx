@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { styles } from "./../style/Dashboard";
-import { conversor } from "../conversor/conversor";
 import {
   View,
   Text,
@@ -10,13 +9,14 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
+import { REACT_APP_API } from "@env";
 
 const Dashboard = () => {
   const [state, setstate] = useState(false);
   const navigation = useNavigation();
 
   const api = async () => {
-    let price = await axios.get("http://localhost:3000/price_bitcon/price");
+    let price = await axios.get(`${REACT_APP_API}/price_bitcon/price`);
     let priceApi = price.data.response;
     // = conversor("usd", priceApi.toString());
     setstate(priceApi);

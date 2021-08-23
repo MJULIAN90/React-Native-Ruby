@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   inicio: {
     backgroundColor: "black",
-    paddingBottom: 100,
+    height: "100%",
+    marginTop: "7%",
   },
 
   salir: {

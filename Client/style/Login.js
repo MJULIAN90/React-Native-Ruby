@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   inicial: {
     backgroundColor: "black",
-    paddingBottom: 160,
+    height: "100%",
   },
 
   tinyLogo: {

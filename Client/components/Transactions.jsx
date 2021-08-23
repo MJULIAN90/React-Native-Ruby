@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "../Context";
 import axios from "axios";
 import CardTransaction from "./CardTransaction";
+import { REACT_APP_API } from "@env";
 
 const Transactions = () => {
   const context = useContext(UserContext);
@@ -19,7 +20,7 @@ const Transactions = () => {
     };
 
     let balanceUser = await axios({
-      url: "http://localhost:3000/transaction/historyTransactions",
+      url: `${REACT_APP_API}/transaction/historyTransactions`,
       method: "Post",
       data: obj,
     });
@@ -37,7 +38,7 @@ const Transactions = () => {
         onPress={() => navigation.navigate("Login")}
         style={styles.salir}
       >
-        <Text style={styles.textoSalir}>Exit</Text>
+        <Text style={styles.textoSalir}>SALIR</Text>
       </TouchableOpacity>
 
       {state && state.length === 0 ? (
