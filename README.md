@@ -7,7 +7,7 @@
 
 ### ¿Qué es?
 
-Se creyó una App para dispositivo móvil que permite el intercambio de la divisa USD por la criptomoneda BTC la cual se efectúa con el precio del instante del BTC en el mercado de criptodivisas la cual se van guardando en una base de datos que nos permite simular la funcionalidad de una wallet real.
+Se creó una App para dispositivo móvil que permite el intercambio de la divisa USD por la criptomoneda BTC la cual se efectúa con el precio del instante del BTC en el mercado de criptodivisas la cual se van guardando en una base de datos que nos permite simular la funcionalidad de una wallet real.
 
 ********
 
